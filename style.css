@@ -1,0 +1,3154 @@
+/*-----------------------BODY--------------------------*/
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0; /* Reseteamos margin para poder poner el que queramos*/
+    background: linear-gradient(135deg, #d8a1aed1, #f0cdd9); /* Fondo degradado*/
+    overflow: hidden;
+}
+
+/*------------------------POPUPS----------------------*/
+
+.modal {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    z-index: 12;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Contenido del modal */
+.modal_content {
+    background-color: #fff;
+    margin: 0 auto;
+    margin-top: 19rem;
+    padding: 2rem;
+    width: 20%;
+    box-shadow: 0 2px 8px rgba(187, 73, 111, 0.613);
+    border-radius: 10px;
+}
+
+/* Container del modal */
+.modal_edit_name {
+    background-color: #fff;
+    margin: 0 auto;
+    padding: 2rem;
+    width: 20%;
+    height: 10%;
+    box-shadow: 0 2px 8px rgba(187, 73, 111, 0.613);
+    border-radius: 10px;
+}
+
+/* Container del modal */
+.modal_edit_password {
+    background-color: #fff;
+    margin: 0 auto;
+    padding: 2rem;
+    box-shadow: 0 2px 8px rgba(187, 73, 111, 0.613);
+    border-radius: 10px;
+    width: 30vw;
+    height: 20%;
+}
+
+/* Container del modal */
+.modal_view_msg {
+    background-color: #fff;
+    margin: 0 auto;
+    padding: 2rem;
+    width: 20%;
+    height: 50%;
+    box-shadow: 0 2px 8px rgba(187, 73, 111, 0.613);
+    border-radius: 10px;
+}
+
+.edit_post_modal{
+    align-items: center;
+    justify-content: left;
+    flex-direction: row;
+    display: flex;
+    width: 46.2%;
+    background: #fff;
+    border-radius: 10px;
+    padding: 1.5%;
+    color: #626262;
+    height: auto;
+    box-shadow: 0 3px 10px rgba(187, 73, 111, 0.613);
+}
+
+/* Container del modal */
+.delete_post_modal {
+    background-color: #fff;
+    margin: 0 auto;
+    padding: 2rem;
+    width: 20%;
+    height: 17%;
+    box-shadow: 0 2px 8px rgba(187, 73, 111, 0.613);
+    border-radius: 10px;
+}
+
+.delete_comment_modal{
+    background-color: #fff;
+    margin: 0 auto;
+    padding: 2rem;
+    width: 20%;
+    height: 17%;
+    box-shadow: 0 2px 8px rgba(187, 73, 111, 0.613);
+    border-radius: 10px;
+}
+
+/* Contenido del modal */
+.delete_modal_content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.delete_options_btn {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: row;
+}
+
+#confirm_btn, #comment_confirm_btn {
+    background-color: #4CAF50;
+    margin: 2rem;
+    padding: 1rem 1.5rem;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: transform 0.25s ease;
+}
+
+#cancel_btn, #comment_cancel_btn {
+    background-color: #f44336;
+    margin: 2rem;
+    padding: 1rem 1.5rem;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: transform 0.25s ease;
+}
+
+#confirm_btn:hover,  #comment_confirm_btn:hover {
+    background-color: #439d46;
+    transform: scale(1.1);
+}
+
+#cancel_btn:hover, #comment_cancel_btn:hover {
+    background-color: #da3b2f;
+    transform: scale(1.1);
+}
+
+.chat_body {
+    overflow-y: auto;
+    height: 90%;
+    overflow-x: hidden;
+    padding: 0 .3rem;
+}
+
+.modal_view_msg h4 {
+    border-bottom: 1px solid black;
+    padding-bottom: .5rem;
+}
+
+/* Scrollbar personalizada */
+.chat_body::-webkit-scrollbar {
+    width: 10px;
+}
+
+.chat_body::-webkit-scrollbar-thumb {
+    background-color: #d46888;
+    border-radius: 5px;
+}
+
+/* Container del modal */
+.comment_section_modal {
+    background-color: #fff;
+    margin: 0 auto;
+    padding: 2rem;
+    width: 35%;
+    height: 40%;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.comment_section_modal h3 {
+    border-bottom: 1px solid black;
+    padding-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.inputs_change_password {
+    display: flex;
+    flex-direction: column;
+    gap: .6rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.centrar {
+    text-align: center;
+}
+
+.inputs_change_password input {
+    width: 100%;
+}
+
+/* Container del modal */
+.modal_view_friends {
+    background-color: #fff;
+    margin: 0 auto;
+    padding: 2rem;
+    width: 20vw;
+    height: 60%;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.modal_view_friends h2 {
+    border-bottom: 1px solid black;
+    padding-bottom: 1rem;
+}
+
+/* Container del modal */
+.modal_send_msg {
+    background-color: #fff;
+    margin: 0 auto;
+    padding: 2rem;
+    width: 25vw;
+    height: auto;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.modal_edit_email {
+    background-color: #fff;
+    margin: 0 auto;
+    padding: 2rem;
+    width: 20vw;
+    height: auto;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding-bottom: 2.5rem;
+}
+
+.modal_send_msg h2 {
+    border-bottom: 1px solid black;
+    padding-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.modal_send_msg p {
+    font-size: 1rem;
+}
+
+.modal_send_msg i {
+    margin-left: 2rem;
+    color: #a1274c;
+}
+
+/* Container del modal */
+.view_terms_modal {
+    background-color: #fff;
+    margin: 0 auto;
+    padding: 2rem;
+    width: 25vw;
+    height: auto;
+    max-height: 60%;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.view_terms_modal i {
+    color: #b8325a;
+    margin-left: .5rem;
+}
+
+.view_terms_modal p {
+    border-left: 2px solid #b8325a;
+    padding-left: .5rem;
+}
+
+.view_terms_modal h2 {
+    border-bottom: 1px solid black;
+    padding-bottom: 1rem;
+}
+
+#terms_txt {
+    overflow-y: auto;
+    height: 50vh;
+}
+
+/* Scrollbar personalizada */
+#terms_txt::-webkit-scrollbar {
+    width: 10px;
+}
+
+#terms_txt::-webkit-scrollbar-thumb {
+    background-color: #d46888;
+    border-radius: 5px;
+}
+
+.msg_body{
+    height: 5rem;
+    max-height: 5rem;
+}
+
+#send_msg_btn {
+    padding: .5rem;
+    background-color: #ca3a5c;
+    margin-top: 1rem;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    width: 7rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+}
+
+#send_msg_btn:hover {
+    background-color: #a9314d;
+}
+
+#new_msg {
+    width: 93%;
+    padding: .5rem;
+    margin-top: 1rem;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    resize: vertical;
+    outline: none;
+    height: auto;
+    max-height: 10rem;
+}
+
+#new_msg:focus {
+    border: 1px solid #ce6888;
+}
+
+#dest_msg {
+    padding: .5rem;
+    width: 93%;
+    outline: none;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    margin-top: .6rem;
+}
+
+#dest_msg:focus {
+    border: 1px solid #ce6888;
+}
+
+.destinatario {
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+}
+
+.destinatario span {
+    margin-bottom: 1rem;
+}
+
+/* Botón para cerrar el modal (solo sirve para un modal) */ 
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 2rem;
+    position: relative;
+}
+
+#friends_list {
+    overflow-y: auto;
+    height: 85%
+}
+
+/* Scrollbar personalizada */
+#friends_list::-webkit-scrollbar {
+    width: 10px;
+}
+
+#friends_list::-webkit-scrollbar-thumb {
+    background-color: #d46888;
+    border-radius: 5px;
+}
+
+.friend {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+    border-radius: 10px;
+    border-left: 5px solid #d46888;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.friend p{
+    margin-left: 1rem;
+}
+
+.friend:hover {
+    background-color: #fdf0f3;
+}
+
+.friend img {
+    border-radius: 50%;
+    max-width: 5rem;
+    min-width: 5rem;
+    max-height: 5rem;
+    min-height: 5rem;
+}
+
+#newName_input,
+#newPassword_input,
+#actual_password_input,
+#confirm_password_input{
+    padding: .5rem;
+    outline: 0;
+    border-radius: 6px;
+    border: 1px solid #a0a0a0;
+}
+
+#newName_input{
+    width: 13rem;
+}
+
+#newEmail_input{
+    padding: .5rem;
+    outline: 0;
+    border-radius: 6px;
+    border: 1px solid #a0a0a0;
+    width: 18rem;
+}
+
+.modal_edit_name h2,
+.modal_edit_password h2,
+.modal_edit_email h2,
+.modal_edit_comment h2 {
+    border-bottom: 1px solid black;
+    padding-bottom: 1rem;
+}
+
+#save_name_btn, #save_email_btn {
+    width: 7rem;
+    padding: .3rem;
+    cursor: pointer;
+    background-color: #ce2f5e;
+    color: white;
+    border: 1px solid black;
+    border-radius: 3px;
+    margin-left: 1rem;
+    transition: background-color 0.2s ease;
+}
+
+#save_new_comment_txt_btn{
+    width: 7rem;
+    padding: .3rem;
+    cursor: pointer;
+    background-color: #ce2f5e;
+    color: white;
+    border: 1px solid black;
+    border-radius: 3px;
+    transition: background-color 0.2s ease;
+}
+
+#save_password_btn {
+    width: 7rem;
+    padding: .5rem;
+    cursor: pointer;
+    background-color: #ce2f5e;
+    color: white;
+    border: 1px solid black;
+    border-radius: 3px;
+    margin-top: 1rem;
+    transition: background-color 0.2s ease;
+}
+
+
+
+#save_name_btn:hover,
+#save_password_btn:hover,
+#save_email_btn:hover,
+#save_new_comment_txt_btn:hover {
+    background-color: #b32a53;
+}
+
+/*Botón de cerrar modal*/
+.close_edit_name,
+.close_edit_password,
+.close_view_friends,
+.close_friend_request,
+.close_send_msg,
+.close_view_msg,
+.close_comments_admin,
+.close_terms,
+.close_delete_modal,
+.close_delete_comment_modal,
+.close_edit_email,
+.close_edit_user,
+.close_edit_comment {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close_editPost_modal {
+    color: #aaa;
+    position: relative;
+    top: -4.5rem;
+    left: 74rem;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/*Hover del botón de cerrar modal*/
+.close:hover,
+.close:focus,
+.close_edit_name:hover,
+.close_edit_password:hover,
+.close_view_friends:hover,
+.close_friend_request:hover,
+.close_send_msg:hover,
+.close_view_msg:hover,
+.close_comments_admin:hover,
+.close_terms:hover,
+.close_delete_modal:hover,
+.close_delete_comment_modal:hover,
+.close_edit_email:hover,
+.close_edit_user:hover,
+.close_edit_comment:hover,
+.close_editPost_modal:hover {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/*----------------LOGOUT POP UP-----------------*/
+
+/*Container del modal(popup)*/
+#logout_popup {
+    /* Oculto por defecto */
+    display: none;
+    position: fixed;
+    z-index: 11;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.619);
+    justify-content: center;
+    align-items: center;
+}
+/*Contenido del modal*/
+.logout_popup_content {
+    background-color: #fff;
+    padding: 4rem;
+    border-radius: 2rem;
+    text-align: center;
+    font-size: 1.2rem;
+    box-shadow: 0 5px 20px rgba(182, 50, 90, 0.556);
+}
+
+#logout_popup button {
+    margin: 2rem;
+    padding: 1rem 3rem;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: transform 0.2s ease-in-out;
+}
+
+#logout_popup button#cancel_logout {
+    background-color: #f44336;
+}
+
+#logout_popup button#cancel_logout:hover {
+    background-color: #d23e33;
+}
+
+#logout_popup button:hover {
+    transform: scale(1.1);
+    background-color: #3f9842;
+}
+
+/*-----------------------------------------------------------------------------ADMIN------------------------------------------------------------------------------------*/
+
+/*-----------------HOME ADMIN------------------*/
+
+/* Menú lateral */
+.container_left_admin {
+    width: 20rem;
+    background-color: rgb(234, 218, 224);
+    height: 88vh;
+    position: fixed;
+    left: 0;
+    display: flex;
+    border-right: 1.5px solid rgb(0, 0, 0);
+}
+
+/*Contenido del container principal del admin*/
+.content_main_admin {
+    margin-top: 4rem;
+}
+
+.container_left_admin ul {
+    list-style-type: none;
+    margin-top: 3rem;
+    width: 15rem;
+}
+
+.container_left_admin ul li {
+    margin: 1rem 0;
+}
+
+.container_left_admin ul li a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    font-size: 18px;
+    display: block;
+    padding: 10px 20px;
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+}
+
+.container_left_admin ul li a:hover,
+.container_left_admin ul li a.active {
+    background-color: #e6b0bf;
+    border-left: 4px solid rgb(210, 66, 124);
+    transform: scale(1.1);
+}
+
+/* Contenedor principal */
+.container_main_admin {
+    margin-left: 20rem;
+    padding: 2rem;
+    width: calc(100% - 250px);
+    background-color: #eeeeee;
+    height: 88vh;
+    display: flex;
+    justify-content: center;
+}
+
+.container_main_admin h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.admin_controls {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.control_block {
+    background-color: #ffffff;
+    padding: 1rem;
+    padding-bottom: 2rem;
+    margin-bottom: 20px;
+    width: 40%;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 3rem;
+    margin-right: 3rem;
+    transition: all 0.3s ease;
+}
+
+.control_block:hover {
+    transform: scale(1.05);
+}
+
+.control_block h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+    color: #000000;
+    border-bottom: 2px solid black;
+    padding: .6rem .6rem;
+    width: 60%;
+}
+
+.control_block p {
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.admin_btn {
+    background-color: #ca3a5c;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.admin_btn:hover {
+    background-color: #a9314d;
+}
+
+
+footer nav p {
+    font-size: 14px;
+}
+
+/*------------------------------ADMIN GESTION PUBLICACIONES--------------------------*/
+
+.admin_posts_container {
+    border-radius: 8px;
+    padding: 2rem;
+    width: 60%;
+    max-height: 75vh;
+    height: 60vh;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 8px rgba(187, 73, 111, 0.613);
+}
+
+.admin_posts_container h2 {
+    text-align: center;
+    color: #333;
+}
+
+.post_search,
+.post_list,
+.comment_section,
+.create_post {
+    margin-top: 2rem;
+}
+
+.post_search input {
+    outline: none;
+    width: 55vw;
+    padding: .6rem;
+    margin-right: 10px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+}
+
+.post_search input:focus {
+    border: 1px solid #ce2f5f;
+}
+
+.post_img_admin {
+    width: 10rem;
+    height: 10rem;
+    border-radius: 8px;
+}
+
+.post_search button {
+    padding: .7rem 1.2rem;
+    border: none;
+    background-color: #ce2f5e;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.post_search button:hover {
+    background-color: #b62a54;
+}
+
+.post_list {
+    background: #f0f0f0;
+    padding: .5rem 1rem;
+    border-radius: 4px;
+    height: 47vh;
+    overflow-y: auto;
+}
+
+.post_list ul {
+    list-style: none;
+    padding: 0;
+}
+
+/*Scrollbar personalizada*/
+.post_list::-webkit-scrollbar {
+    width: 15px;
+    background-color: #daa6b6;
+    border-radius: 50px;
+}
+
+.post_list::-webkit-scrollbar-thumb {
+    width: 15px;
+    background-color: #d46888;
+    border-radius: 50px;
+}
+
+.post {
+    display: flex;
+    justify-content: left;
+    margin-top: 1rem;
+    padding: .6rem;
+    border-bottom: 1px solid #c2c2c2;
+}
+
+.post .descr {
+    width: 50rem;
+    overflow-y: auto;
+    max-height: 7rem;
+}
+
+/*Scrollbar personalizada*/
+.post .descr::-webkit-scrollbar {
+    width: 15px;
+    background-color: #daa6b6;
+    border-radius: 50px;
+}
+
+.post .descr::-webkit-scrollbar-thumb {
+    width: 15px;
+    background-color: #d46888;
+    border-radius: 50px;
+}
+
+.post .user_name {
+    width: 40rem;
+    border-bottom: 1px solid black;
+    padding-bottom: .5rem;
+    font-weight: bold;
+}
+
+.post .info_post {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-left: 1rem;
+}
+
+.post button {
+    border: none;
+    background-color: #ce2f5e;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 8rem;
+    height: 2rem;
+    margin-top: 8rem;
+}
+
+.post_buttons_container {
+    display: flex;
+    gap: .5rem;
+    align-items: center;
+    margin-left: 2rem;
+}
+
+.post button:hover {
+    background-color: #b62a54;
+}
+
+.modal_edit_comment{
+    background-color: #fff;
+    margin: 0 auto;
+    padding: 2rem;
+    width: 30vw;
+    height: auto;
+    max-height: 40%;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding-bottom: 3.5rem;
+}
+
+.comment_section {
+    background: #f0f0f0;
+    padding: 1rem;
+    border-radius: 4px;
+    max-height: 25vh;
+    overflow-y: auto;
+}
+
+.comment_section h3 {
+    margin-bottom: 1rem;
+}
+
+.comment_list {
+    list-style: none;
+    padding: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: 85%;
+}
+
+.comment_list::-webkit-scrollbar {
+    width: 15px;
+    background-color: #daa6b6;
+    border-radius: 50px;
+}
+
+.comment_list::-webkit-scrollbar-thumb {
+    width: 15px;
+    background-color: #d46888;
+    border-radius: 50px;
+}
+
+.comment_control {
+    display: flex;
+    justify-content: left;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding: .6rem;
+    width: 100%;
+    border-bottom: 1px solid #c2c2c2;
+}
+
+.comment_control p {
+    width: 25rem;
+    margin-left: 1rem;
+}
+
+.comment_control strong {
+    width: 7rem;
+}
+
+.comment_control button {
+    padding: .5rem;
+    border: none;
+    background-color: #ce2f5e;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 8rem;
+    height: 2rem;
+}
+
+.comment_control button:hover {
+    background-color: #b62a54;
+}
+
+.create_post {
+    background: #f0f0f0;
+    padding: 1rem;
+    border-radius: 4px;
+}
+
+.create_post h3 {
+    margin-bottom: 1rem;
+}
+
+.create_post form {
+    display: flex;
+    flex-direction: column;
+}
+
+.create_post textarea {
+    outline: none;
+    width: calc(100% - padding);
+    padding: .6rem;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+    resize: vertical;
+    max-height: 7.5rem;
+}
+
+.create_post textarea:focus {
+    border: 1px solid #ce2f5f;
+}
+
+.create_post button {
+    padding: .7rem 1.2rem;
+    border: none;
+    background-color: #ce2f5e;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.create_post button:hover {
+    background-color: #b62a54;
+}
+
+.delete_comment {
+    margin-left: 2rem;
+}
+
+.edit_comment {
+    margin-left: 1rem;
+}
+
+.comment_text{
+    overflow-y: auto;
+    max-height: 10rem;
+}
+
+/*Scrollbar personalizada*/
+.comment_text::-webkit-scrollbar {
+    width: 10px;
+}
+
+.comment_text::-webkit-scrollbar-thumb {
+    background-color: #d46888;
+    border-radius: 5px;
+}
+
+#comment_edited_textarea{
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+}
+
+#comment_edited_textarea{
+    height: auto;
+    max-height: 10rem;
+    resize: vertical;
+    outline: 0;
+    padding: .5rem;
+    width: 95%;
+}
+
+#save_new_comment_txt_btn{
+    margin-top: 1rem;
+    padding: .5rem;
+}
+
+/*-------------------------------GESTION DE MENSAJES ADMIN--------------------------------*/
+
+.admin_msgs_container {
+    border-radius: 8px;
+    padding: 2rem;
+    width: 60%;
+    max-height: 70vh;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 8px rgba(187, 73, 111, 0.613);
+}
+
+.admin_msgs_container h2 {
+    text-align: center;
+    color: #333;
+}
+
+.admin_profiles_container h2 {
+    text-align: center;
+    color: #333;
+}
+
+#contenido_msgs_admin {
+    max-height: 70vh;
+    overflow-y: auto;
+}
+
+/*Scrollbar personalizada*/
+#contenido_msgs_admin::-webkit-scrollbar {
+    width: 10px;
+}
+
+#contenido_msgs_admin::-webkit-scrollbar-thumb {
+    background-color: #d46888;
+    border-radius: 5px;
+}
+
+.msg_search,
+.msg_history,
+.control_options {
+    margin-top: 2rem;
+}
+
+.msg_search input {
+    outline: none;
+    width: 55vw;
+    padding: .6rem;
+    margin-right: 10px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+}
+
+.msg_search input:focus {
+    border: 1px solid #ce2f5f;
+}
+
+.msg_search button {
+    padding: .7rem 1.2rem;
+    border: none;
+    background-color: #ce2f5e;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.user_list {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    padding: .5rem 1rem;
+    border-radius: 4px;
+    max-height: 20vh;
+    overflow-y: auto;
+    width: 50%;
+}
+
+/*Scrollbar personalizada*/
+.user_list::-webkit-scrollbar {
+    width: 10px;
+}
+
+.user_list::-webkit-scrollbar-thumb {
+    background-color: #d46888;
+    border-radius: 5px;
+}
+
+.user_list ul {
+    list-style: none;
+    padding: 0;
+}
+
+.user {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+    padding: .6rem;
+    border-bottom: 1px solid #c2c2c2;
+    transition: transform 0.2s ease;
+}
+
+.user:hover {
+    transform: scale(1.01);
+}
+
+.view_msgs {
+    padding: .7rem 1.2rem;
+    border: none;
+    background-color: #ce2f5e;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.view_msgs:hover,
+.msg_search button:hover,
+.control_options button:hover {
+    background-color: #b62a54;
+}
+
+.msg_history {
+    background: #f0f0f0;
+    padding: 1rem;
+    border-radius: 4px;
+    max-height: 25vh;
+    overflow-y: auto;
+}
+
+/*Scrollbar personalizada*/
+.msg_history::-webkit-scrollbar {
+    width: 10px;
+}
+
+.msg_history::-webkit-scrollbar-thumb {
+    background-color: #d46888;
+    border-radius: 5px;
+}
+
+.msg_history h3 {
+    margin-bottom: 1rem;
+}
+
+.msg_list .msg {
+    background-color: #e0e0e0;
+    padding: .5rem;
+    border-radius: 4px;
+    margin-bottom: .6rem;
+}
+
+.msg_list .msg:hover {
+    background-color: #d4d4d4;
+}
+
+.control_options button {
+    padding: .7rem 1.2rem;
+    border: none;
+    background-color: #ce2f5e;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.userAndChat_list {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.chat_list {
+    width: 50%;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: .5rem 1rem;
+    overflow-y: auto;
+    max-height: 20vh;
+}
+
+/*Scrollbar personalizada*/
+.chat_list::-webkit-scrollbar {
+    width: 10px;
+}
+
+.chat_list::-webkit-scrollbar-thumb {
+    background-color: #d46888;
+    border-radius: 5px;
+}
+
+.chat_body p {
+    padding: .5rem;
+    border-radius: 6px;
+    transition: transform 0.3s ease;
+}
+
+.chat_body p:hover {
+    background: rgba(195, 50, 89, 0.136);
+    transform: scale(1.02);
+}
+
+.chat_list ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.chat_list li {
+    padding: .5rem;
+    background-color: #f1f1f1;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.chat_list li:hover {
+    background-color: #ddd;
+    transform: scale(1.01);
+}
+
+.chat_list li.active {
+    background-color: #cce5ff;
+}
+
+/*----------------------------------GESTION PERFILES DE USUARIO ADMIN-----------------------------*/
+.delete_user_modal{
+    background-color: #fff;
+    margin: 0 auto;
+    padding: 2rem;
+    width: 20vw;
+    height: 18%;
+    box-shadow: 0 2px 8px rgba(187, 73, 111, 0.613);
+    border-radius: 10px;
+}
+
+.modal_edit_user{
+    background-color: #fff;
+    margin: 0 auto;
+    padding: 2rem;
+    width: 20vw;
+    height: 25%;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding-bottom: 3.5rem;
+}
+
+#username_actual,
+#username_edited,
+#email_actual,
+#email_edited,
+#comment_actual{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: left;
+}
+
+#username_actual span,
+#username_edited span,
+#email_actual span,
+#email_edited span,
+#comment_actual span {
+    font-weight: bold;
+}
+
+#username_actual p,
+#email_actual p,
+#comment_actual p{
+    margin-left: 1rem;
+}
+
+#username_edited input{
+    margin-left: 1rem;
+    border-radius: 5px;
+    outline: 0;
+    border: 1px solid black;
+    padding: .4rem;
+    width: 15rem;
+}
+
+#email_edited input{
+    margin-left: 1rem;
+    border-radius: 5px;
+    outline: 0;
+    border: 1px solid black;
+    padding: .4rem;
+    width: 15rem;
+}
+
+#username_actual #username{
+    margin-left: 1rem;
+}
+
+#save_new_name_btn, #save_new_email_btn{    
+    width: 7rem;
+    padding: .3rem;
+    cursor: pointer;
+    background-color: #ce2f5e;
+    color: white;
+    border: 1px solid black;
+    border-radius: 3px;
+    transition: background-color 0.2s ease; 
+    margin-top: 1rem;
+}
+
+#save_new_name_btn:hover, #save_new_email_btn:hover{    
+    background-color: #bb2b56;
+}
+
+#username_info{
+    border-bottom: 1px solid black;
+    padding-bottom: 1rem;
+}
+
+.modal_edit_user h2{
+    border-bottom: 1px solid black;
+    padding-bottom: 1rem;
+}
+
+#atras_btn {
+    color: #000;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+#atras_btn:hover {
+    color: #a1274c;
+}
+
+.admin_profiles_container {
+    padding: 2rem;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(187, 73, 111, 0.613);
+    width: 60%;
+}
+
+.perfil_search {
+    margin-bottom: 1rem;
+}
+
+.perfil_search input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: calc(100% - 110px);
+    margin-right: 10px;
+    outline: 0;
+}
+
+.perfil_search input:focus {
+    border-color: #cd426b;
+}
+
+.perfil_search button {
+    padding: .7rem 1.5rem;
+    background-color: #ca3a5c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+.perfil_search button:hover {
+    background-color: #b93856;
+}
+
+.perfil_list {
+    overflow-y: auto;
+    max-height: 24rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+/*Scrollbar personalizada*/
+.perfil_list::-webkit-scrollbar {
+    width: 10px;
+}
+
+.perfil_list::-webkit-scrollbar-thumb {
+    background-color: #d46888;
+    border-radius: 5px;
+}
+
+.perfil_list ul,
+.friend_requests ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.perfil_list li,
+.friend_requests li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: .5rem;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+}
+
+.perfil_list li{
+    transition: transform 0.2s ease;
+}
+
+.perfil_list li:hover{
+    transform: scale(1.01);
+}
+
+.perfil_list li span,
+.friend_requests li span {
+    flex-grow: 1;
+}
+
+.perfil_list li button {
+    padding: .5rem 1rem;
+    background-color: #ca3a5c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 1rem;
+}
+
+.perfil_list li button:hover {
+    background-color: #b93856;
+}
+
+.create_perfil form {
+    display: flex;
+    flex-direction: column;
+}
+
+.create_perfil form input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    outline: 0;
+}
+
+.create_perfil form input:focus {
+    border-color: #cd426b;
+}
+
+.create_perfil form button {
+    padding: 0.7rem 1.7rem;
+    background-color: #ca3a5c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+.create_perfil form button:hover {
+    background-color: #b93856;
+}
+
+.sep {
+    margin-top: 1rem;
+}
+
+/*------------------------------------------------------------------------------------------USUARIO-------------------------------------------------------------------------------------------*/
+/*-------------------SOLICITUDES DE AMISTAD---------------*/
+
+.search_results_container {
+    display: none; /*Esconder por defecto*/
+    position: absolute;
+    top: 100%; /* Justo debajo del search_box */
+    left: 0;
+    background-color: #fff;
+    width: 100%;
+    max-height: 18.75rem;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    z-index: 10;
+    margin-top: 0.3rem;
+    border-radius: 0.6rem;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Añade sombra para diferenciar */
+}
+
+/*Scrollbar personalizada*/
+.search_results_container::-webkit-scrollbar {
+    width: 10px;
+}
+
+.search_results_container::-webkit-scrollbar-thumb {
+    background-color: #d46888;
+    border-radius: 5px;
+}
+
+/*Se mostrará solo cuando tenga la clase 'active' */
+.search_results_container.active {
+    display: block;
+}
+
+.friend_req_btn:hover {
+    background-color: #b33351;
+}
+
+.search_result {
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.search_result p {
+    margin: 0;
+}
+
+.search_result button {
+    background-color: #cc385a;
+    color: #fff;
+    border: none;
+    padding: .5rem;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/*---------------RECIBIR SOLICITUDES DE AMISTAD POPUP/MODAL-------------*/
+
+.modal_friend_requests {
+    background-color: #fff;
+    margin: 0 auto;
+    padding: 2rem;
+    width: 20vw;
+    height: 45%;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.modal_friend_requests h2 {
+    border-bottom: 1px solid black;
+    padding-bottom: 1rem;
+}
+
+.requests_list {
+    list-style: none;
+    padding: 1.05rem;
+    overflow-y: auto;
+    max-height: 80%;
+}
+
+.requests_list::-webkit-scrollbar {
+    width: 10px;
+}
+
+.requests_list::-webkit-scrollbar-thumb {
+    background-color: #d46888;
+    border-radius: 5px;
+}
+
+.request {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    padding: 6px;
+    border: 1px solid #ccc;
+    background-color: #f5e8eb;
+    border-radius: 6px;
+    margin-right: .5rem;
+    transition: transform 0.2s ease;
+}
+
+.request img{
+    border-radius: 50%;
+    max-width: 4rem;
+    max-height: 4rem;
+    min-width: 4rem;
+    min-height: 4rem;
+}
+
+.request:hover {
+    transform: scale(1.05);
+}
+
+.request span {
+    font-weight: bold;
+    max-width: 6rem;
+}
+
+.accept_request,
+.decline_request {
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    padding: .5rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.accept_request:hover {
+    background-color: #81e298;
+    border-color: #81e298;
+}
+
+.decline_request:hover {
+    background-color: #d2757e;
+    border-color: #d2757e;
+}
+
+/*------------------POST COMMENTS SECTION-----------------*/
+
+/* Fondo negro */
+.modal_background {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    z-index: 1000; /* Por encima del contenido */
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro */
+    align-items: center;
+}
+
+.modal_container_comments {
+    background-color: #fff;
+    padding: 1rem;
+    margin: 0 auto;
+    border-radius: 10px;
+    width: 40rem;
+    max-height: 60rem;
+    height: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.me {
+    color: #c52f5c;
+}
+
+.modal_content h4 {
+    padding-bottom: 1rem;
+    border-bottom: 1px solid black;
+    font-size: 1.2rem;
+}
+
+.modal_content p {
+    border-radius: 10px;
+    background-color: #f8eaee;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Cada comentario */
+.comment {
+    background-color: #f9f9f9;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+    margin-top: 1rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    border: 1px solid #ddd;
+    width: 90%;
+}
+
+#new_comment {
+    width: 96%;
+    padding: 1rem;
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    resize: vertical;
+    outline: none;
+    max-height: 10rem;
+}
+
+.comments_section {
+    overflow-y: auto;
+    background-color: rgb(247, 222, 231);
+    overflow-x: hidden;
+    height: 30rem;
+}
+
+/*Scrollbar personalizada*/
+.comments_section::-webkit-scrollbar {
+    width: 15px;
+    background-color: #daa6b6;
+    border-radius: 50px;
+}
+
+.comments_section::-webkit-scrollbar-thumb {
+    width: 15px;
+    background-color: #d46888;
+    border-radius: 50px;
+}
+
+#new_comment:focus {
+    border-color: #aeaeae;
+}
+
+#post_comment_btn {
+    background-color: #ce2f5e;
+    margin-left: 0;
+    color: white;
+    padding: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    width: 13rem;
+    cursor: pointer;
+}
+
+#post_comment_btn:hover {
+    background-color: #b32852;
+}
+
+
+/* ------------------------------------NAVBAR------------------------------------*/
+.navbar {
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, #cf5974, #efced6);
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    max-height: 9vh; /* Para evitar que la navbar se expanda sin control*/
+    border-bottom: 1px solid #000000;
+    z-index: 10; /*Para evitar que otros elementos se superpongan*/
+}
+
+.navbar_left {
+    width: 30vw;
+    height: 9vh;
+}
+
+.navbar_right {
+    display: flex;
+    align-items: center;
+    width: 50vw;
+    justify-content: right;
+    margin-right: 3rem;
+}
+
+.name_perfil {
+    margin-right: 1.5rem;
+    font-family: 'Pacifico',  cursive , Verdana;
+    font-size: 1.2rem;
+}
+
+.perfil {
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+    overflow: hidden;
+    width: 5rem;
+    height: 5rem;
+}
+
+.perfil:hover {
+    transform: scale(1.1); /* Agranda la imagen al pasar el cursor */
+}
+
+.perfil img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.container_right_home .msg:hover {
+    transform: scale(1.07);
+}
+
+.logo_nav_left {
+    width: 35%;
+    height: 100%;
+    margin-left: 20rem;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    overflow: hidden;
+    pointer-events: auto;
+}
+
+.logo_nav_left img {
+    width: 20rem;
+    position: relative;
+    left: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.logo_nav_left img:hover {
+    transform: scale(1.1);
+}
+
+.search_box {
+    position: relative;
+    border-radius: 2.5rem;
+    padding: 1.1rem;
+    width: 30vw;
+    background-color: rgba(255, 255, 255, 0.931);
+    display: flex;
+    align-items: center;
+    margin-right: 10rem;
+}
+
+.search_box input {
+    width: 100%;
+    background: transparent;
+    outline: none;
+    border: 0;
+    font-size: 1.1rem;
+    margin-left: .5rem;
+}
+
+.icon_search {
+    font-size: 1.3rem;
+    color: #cfcfcf;
+    margin-left: 1rem;
+    cursor: pointer;
+    transition: color 0.3s; /* Añade una transición suave para el color */
+}
+
+.icon_search:hover {
+    color: #a9314d;
+}
+
+/*-------------------INPUT POSTS-----------------*/
+
+.crear_post #crear_post_text_area, .edit_post_modal #crear_post_text_area {
+    width: 30vw;
+    margin-left: 1.1rem;
+    border: 0;
+    outline: 0;
+    border-bottom: 1px solid rgb(200, 200, 200);
+    background: transparent;
+    font-size: 18px;
+    resize: vertical;
+    max-height: 300px;
+    margin-top: 1.8rem;
+    margin-bottom: 2rem;
+}
+
+/*Scrollbar personalizada*/
+#crear_post_text_area::-webkit-scrollbar {
+    width: 10px;
+}
+
+#crear_post_text_area::-webkit-scrollbar-thumb {
+    background-color: #d46888;
+    border-radius: 5px;
+}
+
+.crear_post {
+    align-items: center;
+    justify-content: left;
+    flex-direction: row;
+    display: flex;
+    width: 86.2%;
+    background: #fff;
+    border-radius: 10px;
+    padding: 1.5%;
+    color: #626262;
+    margin-top: 7%;
+    height: auto;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+}
+
+.crear_post .img_perfil, .edit_post_modal .img_perfil {
+    display: flex;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.4s ease-in-out;
+}
+
+.img_perfil:hover {
+    transform: scale(1.07);
+}
+
+.crear_post #preview_img, .edit_post_modal #preview_img  {
+    max-width: 7vw;
+    max-height: 7vh;
+    margin-left: 1.1rem;
+}
+
+/* Botón de subir imagen */
+.upload_image {
+    background-color: #ca3a5c;
+    border-radius: 50%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+    color: white;
+    padding: .5rem;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out; /* Transición suave */
+    width: 1.5rem;
+    height: 1.5rem;
+    position: relative;
+    left: 2rem;
+    margin-right: .2rem;
+}
+
+.upload_image:hover {
+    background-color: #ba3655;
+    transform: scale(1.1);
+}
+
+
+.input_image {
+    display: none; /* Escondemos el input real (para poder personalizarlo) */
+}
+
+#input_image {
+    display: none; /* Escondemos el input real (para poder personalizarlo) */
+}
+
+/* Animación de pulsación de la sombra*/
+@keyframes pulseShadow {
+    0% {
+        box-shadow: 0 0 60px rgba(213, 30, 94, 0.5)
+    }
+
+    50% {
+        box-shadow: 0 0 10px rgba(213, 18, 77, 0.8);
+        /* Sombra más intensa */
+    }
+
+    100% {
+        box-shadow: 0 0 60px rgba(213, 30, 94, 0.5);
+        /* Vuelve a la sombra inicial */
+    }
+}
+
+/*----------------------CONTAINERS-------------------*/
+
+.container_reg {
+    background-color: rgba(255, 255, 255, 0.699);
+    border-radius: 8px;
+    width: 500px;
+    height: 510px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    animation: pulseShadow 6s infinite ease-in-out; /* Animación */
+    position: relative
+}
+
+.container_login {
+    background-color: rgba(255, 255, 255, 0.699);
+    border-radius: 8px;
+    width: 750px;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    animation: pulseShadow 7s infinite ease-in-out; /* Animación */
+    position: absolute;
+}
+
+.container_main_home {
+    background-color: rgba(255, 255, 255, 0.699);
+    width: 100%;
+    max-width: 100vh;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+    flex-grow: 1;
+    box-shadow: 0 5px 10px rgba(182, 50, 90, 0.498); /*Sombra suave*/
+    overflow-x: hidden;
+}
+
+/*Scrollbar personalizada*/
+.container_main_home::-webkit-scrollbar {
+    width: 15px;
+    background-color: #daa6b6;
+    border-radius: 50px;
+}
+
+.container_main_home::-webkit-scrollbar-thumb {
+    width: 15px;
+    background-color: #d46888;
+    border-radius: 50px;
+}
+
+/*---------------------------POST------------------------*/
+
+.mis_posts h3 {
+    font-size: 1.5rem;
+}
+
+.mis_posts {
+    background-color: #ffffff;
+    border-radius: 10px;
+    width: 89%;
+    margin-top: 3.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(96, 96, 96, 0.5)
+}
+
+.post_container {
+    position: relative;
+    justify-content: left;
+    flex-direction: column;
+    display: flex;
+    width: 84%;
+    height: auto;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    padding: 2rem;
+    color: #fff;
+    margin: 2rem 0;
+    box-shadow: 0 5px 10px rgba(96, 96, 96, 0.5)
+}
+
+.delete_btn {
+    position: absolute;
+    right: 2.5%;
+    background-color: #ce2f5e;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: transform 0.3s ease;
+}
+
+.edit_btn{
+    position: absolute;
+    right: 11.5%;
+    background-color: #ce2f5e;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: transform 0.3s ease;
+}
+
+.delete_btn:hover, .edit_btn:hover {
+    transform: scale(1.08);
+    background-color: #be2d59;
+}
+
+.post_container .perfil_post {
+    display: flex;
+    width: 50rem;
+}
+
+.perfil_post .perfil_img {
+    cursor: pointer;
+    transition: transform 0.4s ease-in-out;
+}
+
+.perfil_post .perfil_img:hover {
+    transform: scale(1.07);
+}
+
+.post_container .perfil_img {
+    border-radius: 50%;
+    max-width: 5rem;
+    min-width: 5rem;
+    max-height: 5rem;
+    min-height: 5rem;
+}
+
+.post_container .name {
+    margin-left: 1rem;
+    font-size: 1.2rem;
+    color: #000000;
+}
+
+.post_container span {
+    margin-left: 1rem;
+    color: #9b9b9b;
+}
+
+.post_container .post_text {
+    font-size: 1.2rem;
+    color: #727272;
+}
+
+.post_container .post_text p{
+    max-height: 1rem;
+}
+
+.post_container .post_img {
+    border-radius: 10px;
+    width: 100%;
+    max-height: 45vh;
+
+}
+
+.lightbox {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+}
+
+.img_cont {
+    width: 100%;
+    height: 45vh;
+    object-fit: cover;
+    cursor: pointer;
+    transition: transform 0.4s ease-in-out;
+}
+
+.img_cont:hover {
+    transform: scale(1.006);
+}
+
+.post_interactions {
+    margin-top: 1rem;
+    display: flex;
+    gap: 2rem;
+    background-color: transparent;
+}
+
+.post_interactions {
+    color: #000000;
+    font-size: 1.2rem;
+}
+
+.post_interactions i:hover {
+    color: #a21c42;
+}
+
+.post_interactions i {
+    font-size: 1.7rem;
+    cursor: pointer;
+}
+
+/*Cambia el color del icono de like cuando se clickee*/
+.like_icon .liked {
+    color: #a21c42;
+    transform: scale(1.2);
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+/*-------------------------------CONTAINER RIGHT----------------------------------*/
+
+.container_right_home {
+    background-color: rgba(255, 255, 255, 0.699);
+    width: 15vw;
+    height: 70vh;
+    margin-right: 2%;
+    box-shadow: 0 5px 10px rgba(182, 50, 90, 0.498);
+    border-radius: 2rem;
+    padding: 2rem;
+    overflow-y: auto;
+    position: sticky;
+    overflow-x: hidden;
+}
+
+.container_right_home::-webkit-scrollbar {
+    width: 15px;
+    background-color: #daa6b6;
+    border-radius: 50px;
+}
+
+.container_right_home::-webkit-scrollbar-thumb {
+    width: 15px;
+    background-color: #d46888;
+    border-radius: 50px;
+}
+
+/*-------------------------SETTINGS-------------------------*/
+.setting_title {
+    width: 12vw;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    border-bottom: 1px solid rgb(150, 150, 150);
+}
+
+.profile_setting {
+    margin-bottom: 1.5rem;
+    background-color: #ffffff;
+    box-shadow: 0 5px 10px rgba(178, 80, 111, 0.498); /*Sombra suave*/
+    border-radius: 10px;
+    padding: .6rem;
+    transition: transform 0.3s ease-in-out;
+}
+
+.profile_setting:hover {
+    transform: scale(1.05);
+}
+
+.setting_title p {
+    font-weight: bold;
+}
+
+.settings_text {
+    margin-left: .5rem;
+}
+
+.setting_title i {
+    color: #a21c42;
+}
+
+.container_left_home {
+    background-color: rgba(255, 255, 255, 0.699);
+    width: 10vw;
+    height: 60vh;
+    display: flex;
+    align-items: left;
+    margin-left: 4%;
+    border-radius: 1rem;
+    box-shadow: 0 4px 10px rgba(182, 50, 90, 0.556)
+}
+
+.container_left_home a {
+    text-decoration: none;
+    color: #000;
+    font-size: 1.1rem;
+    display: block;
+    padding: 1rem 0;
+    border-bottom: .05rem solid #a21c42;
+    transition: transform 0.2s ease-in-out;
+}
+
+.container_left_home ul li a.active {
+    color: #a21c42;
+    transform: scale(1.1);
+    font-weight: bold;
+}
+
+.container_left_home a:hover {
+    transform: scale(1.07);
+}
+
+.container_left_home ul li a:hover {
+    color: #a21c42;
+}
+
+.container_left_home ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding-inline-start: 2rem;
+}
+
+.container_left_home ul li {
+    display: inline; /* Para quitar los puntos*/
+    width: 7vw;
+}
+
+.container_left_home ul li i {
+    color: #a21c42;
+}
+
+.background {
+    background: rgba(255, 255, 255, 0.459);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1%;
+    position: relative;
+    width: 100vw;
+    height: 87.5vh;
+    top: 1rem;
+}
+
+/*--------------------------MENSAJES------------------------*/
+
+.msg_top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    font-size: 20px;
+}
+
+.msg_top i {
+    color: #8f8f8f;
+    font-size: 2.3rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.msg_top i:hover {
+    color: #a21c42;
+    transform: scale(1.15);
+}
+
+.top_side {
+    border-bottom: 1px solid rgb(196, 78, 113);
+    margin-bottom: 10px;
+}
+
+.msg_search_bar {
+    border-radius: 40px;
+    padding: .6rem;
+    width: 13.8vw;
+    background-color: rgba(255, 255, 255, 0.931);
+    display: flex;
+    align-items: center;
+    margin-bottom: 35px;
+}
+
+.msg_search_bar i {
+    margin-left: 10px;
+}
+
+.msg_search_bar input {
+    width: 100%;
+    background: transparent;
+    padding: 1rem;
+    outline: none;
+    border: 0;
+    font-size: 18px;
+}
+
+.msg {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: all 0.4s ease;
+    justify-content: left;
+    align-items: center;
+}
+
+.container_right_home .msg:hover {
+    background: rgba(195, 50, 89, 0.136);
+}
+
+.msg:last-child {
+    margin-bottom: 0;
+}
+
+.msg h5 {
+    font-size: 1.1rem;
+}
+
+.msg_text {
+    font-size: 1rem;
+    position: relative;
+    bottom: 15px;
+    margin-right: 1rem;
+}
+
+
+.foto_perfil{
+    border-radius: 50%;
+    max-height: 4rem;
+    max-width: 4rem;
+    min-height: 4rem;
+    min-width: 4rem;
+}
+
+
+/*---------------------SETTINGS-------------------*/
+
+.profile_settings_top {
+    border-bottom: 1.5px solid rgb(196, 78, 113);
+    padding: 5px 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.settings_btn {
+    padding: .6rem;
+    background-color: rgb(140, 140, 140);
+    color: white;
+    border: none;
+    border-radius: 100px;
+    cursor: pointer;
+    width: 10rem;
+    transition: all 0.3s ease;
+    margin-bottom: .4rem;
+    font-size: .9rem;
+}
+
+.settings_btn_img {
+    padding: .6rem;
+    background-color: rgb(157, 157, 157);
+    color: white;
+    border: none;
+    border-radius: 100px;
+    cursor: pointer;
+    width: 9rem;
+    transition: all 0.3s ease;
+    margin-bottom: .4rem;
+    font-size: .9rem;
+    display: flex;
+    justify-content: center;
+}
+
+.update_img_btn {
+    margin-left: .4rem;
+    width: 10rem;
+}
+
+.settings_btn:hover {
+    background-color: rgb(53, 53, 53);
+}
+
+.settings_btn_img:hover {
+    background-color: rgb(53, 53, 53);
+}
+
+.profile_settings_top h3 {
+    font-size: 1.4rem;
+}
+
+.profile_settings_top i {
+    font-size: 2rem;
+    color: #a21c42;
+}
+
+/*-----------------------LOGIN ADMIN---------------------*/
+#admin {
+    color: #d5214e;
+    transition: all 0.3s ease;
+}
+
+#lbl_admin {
+    cursor: pointer;
+    position: relative;
+    top: 2rem;
+}
+
+#admin:hover {
+    color: rgb(161, 31, 53);
+}
+
+#atras {
+    position: relative;
+    right: 14rem;
+    bottom: 7rem;
+    cursor: pointer;
+    color: rgb(84, 84, 84);
+    font-size: large;
+}
+
+#atras_admin {
+    position: relative;
+    right: 21.5rem;
+    bottom: 18.5rem;
+    cursor: pointer;
+    color: rgb(84, 84, 84);
+    font-size: large;
+}
+
+#atras_admin:hover {
+    color: #ce2f5e
+}
+
+#atras:hover {
+    color: #ce2f5e
+}
+
+#msg_error {
+    position: relative;
+    bottom: 10rem;
+    height: .1rem;
+    font-size: .9rem;
+}
+
+#separator {
+    position: relative;
+    margin-top: 34rem;
+    bottom: 0.6rem;
+}
+
+/*-------------------------FOOTER------------------------*/
+footer p {
+    font-size: .8rem;
+}
+
+.footer_background {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    width: 100vw;
+    height: 5vh;
+    background: linear-gradient(135deg, #cc667e, #efced6);
+    bottom: 0;
+}
+
+footer nav {
+    display: flex;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.contact-label a {
+    color: #981d42;
+    font-weight: bold;
+    text-decoration: underline;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.contact-label a:hover {
+    color: #811938;
+}
+
+/*----------------------LOGOS----------------------*/
+#logo_inicio {
+    width: 30rem;
+    position: relative;
+    bottom: 40rem;
+    pointer-events: none; /*Para que no intervenga en otros elementos*/
+}
+
+#logo_reg {
+    width: 28rem;
+    position: relative;
+    bottom: 38rem;
+    pointer-events: none;
+}
+
+/*----------------------SOLO AMIGOS----------------------*/
+
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 999; /* Un nivel debajo de la imagen */
+    opacity: 1; /* Visible al principio */
+    transition: opacity 2s ease-in-out; /* Animación de desvanecimiento */
+    pointer-events: none;
+}
+
+#overlay.fade-out {
+    opacity: 0; /* Desaparece junto con la imagen */
+}
+
+/* Imagen centrada y con efecto de desvanecimiento */
+#solo_amigos {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    width: 30rem;
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
+
+#solo_amigos.fade-out {
+    opacity: 0; /* Hacer que la imagen desaparezca */
+}
+
+/* Imagen en su nueva posición después de reaparecer, con tamaño reducido */
+#solo_amigos.new-position {
+    top: 0;
+    left: 10rem;
+    opacity: 0; /* Comienza invisible para el efecto de aparecer */
+    transform: scale(0.35);
+    transition: opacity 2s ease-in-out, top 2s ease-in-out, left 2s ease-in-out, transform 2s ease-in-out; /* Incluye la transición de tamaño */
+}
+
+/* Clase para que reaparezca */
+#solo_amigos.appear {
+    opacity: 1;
+    /* Aparecerá gradualmente */
+}
+
+/*----------------------REGISTROS-----------------*/
+.campos_reg input {
+    width: 15rem;
+    padding: .7rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    position: relative;
+    font-size: 1rem;
+    margin-top: .4rem;
+}
+
+#mostrarPassword {
+    position: relative;
+    left: 12rem;
+    bottom: 5.4rem;
+    cursor: pointer;
+    color: rgb(96, 70, 77);
+}
+
+#mostrarPassword_reg {
+    position: relative;
+    left: 11.5rem;
+    bottom: 5.2rem;
+    cursor: pointer;
+    color: rgb(96, 70, 77);
+    margin-left: 11.5rem;
+}
+
+#mostrarPassword_reg i {
+    margin-top: 1.2rem;
+}
+
+#mostrarPassword:hover {
+    color: #a1274c;
+}
+
+#mostrarPassword_reg:hover {
+    color: #a1274c;
+}
+
+#mostrarPassword_admin {
+    position: relative;
+    left: 12rem;
+    bottom: 3rem;
+    cursor: pointer;
+    color: rgb(96, 70, 77);
+}
+
+#mostrarPassword_admin:hover {
+    color: #a1274c;
+}
+
+.lbl_registro {
+    position: relative;
+    right: 6rem;
+}
+
+#registrarse {
+    /* Usamos # para selector de IDs */
+    color: #d5214e;
+    cursor: pointer;
+    text-decoration: underline;
+    position: relative;
+    left: 8rem;
+    bottom: 1.25rem;
+    transition: all 0.3s ease;
+}
+
+#registrarse:hover {
+    /* Usamos # para selector de IDs */
+    color: #a1274c;
+}
+
+
+.campos_log label {
+    display: block;
+    margin-bottom: .5rem;
+    font-size: 1.2rem;
+}
+
+#lbl_usuario {
+    margin-top: 40rem;
+}
+
+.lbl_terms {
+    text-decoration: underline;
+    color: #cf5166;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.lbl_terms:hover {
+    color: rgb(170, 37, 77);
+}
+
+#terms {
+    margin-top: 1rem;
+    margin-bottom: -1rem;
+    z-index: 1;
+}
+
+#terms input {
+    cursor: pointer;
+}
+
+#check {
+    cursor: pointer;
+}
+
+#submit_new_user {
+    display: block;
+    padding: 1rem;
+    background-color: #ce2f5e;
+    margin: auto;
+    color: white;
+    border: none; /* Sin bordes*/
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    width: 20rem;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+}
+
+#submit_new_user:hover {
+    background-color: #ad2850;
+}
+
+.campos_log input:focus {
+    outline: none; /* Elimina el contorno naranja */
+    border-color: #ce2f5e; /* Cambia el color del borde al hacer focus */
+}
+
+.reg_input:focus {
+    outline: none; /* Elimina el contorno naranja */
+    border-color: #ce2f5e; /* Cambia el color del borde al hacer focus */
+}
+
+#reg_form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.campos_log input {
+    width: 20rem;
+    padding: .7rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    font-size: medium;
+}
+
+.post_btn {
+    padding: .8rem;
+    background-color: #ca3a5c;
+    margin-left: 3rem;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    width: 8rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+}
+
+.post_btn:hover {
+    background-color: #b93856;
+    transform: scale(1.05);
+}
+
+.btn_login {
+    padding: .8rem;
+    background-color: #ce2f5e;
+    margin: auto;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.4rem;
+    top: .1rem;
+    width: 25rem;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.btn_login:hover {
+    background-color: #ad2850;
+}
+
+
+
+/*---------------------------------------------------------MEDIA QUERIES PARA RESOLUCIONES MAS PEQUEÑAS--------------------------------------------------------*/
+
+@media (min-width: 1000px) and (max-width: 1649px) {
+
+    /*---------------------MODALS----------------------*/
+    .modal_edit_name {
+        width: 30vw;
+        height: 15vh;
+    }
+
+    .modal_edit_password {
+        width: 30vw;
+        height: 33vh;
+    }
+
+    .modal_view_friends {
+        height: 60vh;
+        width: 30vw;
+    }
+
+    .modal_friend_requests {
+        height: 60vh;
+        width: 30vw;
+    }
+
+    .modal_send_msg {
+        height: auto;
+    }
+
+    .modal_view_msg {
+        height: 60%;
+        width: 30%;
+    }
+
+    .modal_container_comments {
+        padding: 10px 25px;
+        max-height: 40rem;
+    }
+
+    .view_terms_modal {
+        width: 40vw;
+        height: auto;
+        max-height: 70%;
+    }
+
+    .requests_list {
+        max-height: 70%;
+    }
+
+    .delete_post_modal {
+        width: 30%;
+        height: 25%;
+        padding-bottom: 2.5rem;
+    }
+
+    .userAndChat_list {
+        transform: scale(0.9);
+    }
+
+    .user_list {
+        max-height: 28vh;
+    }
+
+    .chat_list {
+        max-height: 28vh;
+    }
+
+    .msg_history {
+        max-height: 30vh;
+    }
+
+    .post_container {
+        width: 80%;
+    }
+
+    .setting_title, p, button {
+        margin-left: 0;
+    }
+
+    .logout_popup_content {
+        padding: 2.5rem;
+    }
+
+    /*------------------------CONTAINERS-----------------------*/
+    .container_login {
+        transform: scale(.8);
+    }
+
+    .container_login img {
+        width: 50%;
+    }
+
+    .container_left_home ul {
+        transform: scale(.95);
+        padding-inline-start: 1rem;
+    }
+
+    .container_left_home a {
+        font-size: 100%;
+    }
+
+    .container_left_home {
+        width: 11vw;
+    }
+
+    *:not(.container_login *, ) {
+        font-size: 90%;
+    }
+
+    .container_right_home .msg * {
+        font-size: .8rem;
+    }
+
+    .container_right_home {
+        width: 20vw;
+        transform: scale(.95);
+    }
+
+    .content_main_admin {
+        margin-top: 1rem;
+    }
+
+    .container_left_admin {
+        width: 15rem;
+        height: 92vh;
+    }
+
+    .container_left_admin ul {
+        margin-top: 2rem;
+        width: 11rem;
+    }
+
+    .container_left_admin ul li {
+        margin-top: 2rem;
+    }
+
+    .control_block h3 {
+        width: 80%;
+    }
+
+    .admin_profiles_container {
+        /*transform: scale(0.75);*/
+        width: 70%;
+        overflow-y: auto;
+        height: 90%;
+        margin-left: 15rem;
+    }
+
+    .admin_profiles_container::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    .admin_profiles_container::-webkit-scrollbar-thumb {
+        background-color: #d46888;
+        border-radius: 5px;
+    }
+
+    .post_search button {
+        margin-top: 1rem;
+    }
+
+    .post .info_post {
+        margin-left: 1rem;
+    }
+
+    .post .descr {
+        width: 22rem;
+        max-width: 22rem;
+        overflow-y: auto;
+        max-height: 7rem;
+    }
+
+    .post_buttons_container {
+        margin-left: 1rem;
+    }
+
+    #contenido_msgs_admin {
+        max-height: 40vh;
+        padding-right: 1rem;
+    }
+
+    .post .info_post {
+        width: 22rem;
+    }
+
+    .post_list {
+        max-height: 60vh;
+    }
+
+    .admin_posts_container {
+        overflow-y: auto;
+        width: 70%;
+        margin-left: 15rem;
+    }
+
+    #contenido_msgs_admin::-webkit-scrollbar {
+        width: 10px;
+    }
+    
+    #contenido_msgs_admin::-webkit-scrollbar-thumb {
+        background-color: #d46888;
+        border-radius: 5px;
+    }
+
+    .admin_posts_container::-webkit-scrollbar {
+        width: 10px;
+    }
+    
+    .admin_posts_container::-webkit-scrollbar-thumb {
+        background-color: #d46888;
+        border-radius: 5px;
+    }
+
+    .admin_msgs_container {
+        margin-left: 15rem;
+    }
+
+    .comment_section_modal {
+        width: 62%;
+        height: 60%;
+    }
+
+    /*-------------LOGOS E IMAGENES--------------*/
+    .logo_nav_left {
+        width: 55%;
+        margin-left: 5rem;
+    }
+
+    .logo_nav_left img {
+        width: 13rem;
+    }
+
+    /* Botón de subir imagen */
+    .upload_image {
+        width: 1rem;
+        height: 1rem;
+        margin-right: .5rem;
+    }
+
+    .upload_image i {
+        font-size: .8rem;
+    }
+
+    #solo_amigos {
+        position: fixed;
+        top: 50%;
+        left: 45%;
+        width: 20rem;
+    }
+
+    #solo_amigos.new-position {
+        top: -1rem;
+        left: 0;
+    }
+
+    .search_box {
+        padding: .7rem;
+    }
+
+    .navbar_right {
+        width: 90%;
+    }
+
+    .msg_search_bar {
+        padding: 0 !important;
+        width: 19vw !important;
+    }
+
+    .crear_post #crear_post_text_area {
+        width: 25rem;
+    }
+
+    .crear_post {
+        width: 86%;
+    }
+
+    .post_btn {
+        margin-left: 2rem;
+        padding: .6rem;
+        width: 6rem;
+        font-size: 90%;
+    }
+
+    .perfil {
+        width: 4rem;
+        height: 4rem;
+        max-width: 4rem;
+        max-height: 4rem;
+        border-radius: 50%;
+    }
+
+    .edit_btn{  
+        right: 17.5%;
+    }
+
+    .close_editPost_modal {
+        top: -3.9rem;
+        left: 41rem;
+    }
+
+    .modal_edit_email {
+        width: 35vw;
+    }
+
+    .delete_user_modal{
+        width: 30vw;
+        height: 24% ;
+    }
+
+    .modal_edit_user{
+        width: 36vw;
+        height: 42%;
+    }
+
+    .delete_comment_modal{
+        width: 30vw;
+        height: 26%;
+    }
+
+    .modal_edit_comment{
+        max-height: 70%;
+    }
+
+    #comment_edited_textarea{
+        max-height: 12rem;
+    }
+}

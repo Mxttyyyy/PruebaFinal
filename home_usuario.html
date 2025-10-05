@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<!--HEADER Y METADATOS-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - ViewShare</title>
+    <link rel="icon" type="image/png" href="Imagenes/ICONO_WEB.png"> <!--Icono de la web-->
+    <link rel="stylesheet" href="style.css"> <!--Importamos el .css-->
+    <script src="https://kit.fontawesome.com/d3001438c5.js" crossorigin="anonymous"></script> <!--Importamos la web fontawesome para poder utilizar sus iconos-->
+    <script src="js/main.js"></script> <!--Importamos js al principio para que cargue antes que los demás elementos-->
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet"> <!--Importar fuente de letras personalizado-->
+</head>
+
+<body>
+
+    <!--================ Barra de navegación fija ================-->
+    <header>
+        <div class="navbar">
+            
+            <!--Navbar parte izquierda-->
+            <div class="navbar_left">
+                <a href="home_usuario.html" class="logo_nav_left">
+                    <img src="Imagenes/LOGO_WEB.png" alt="Logo ViewShare" class="logo">
+                </a>
+            </div>
+
+            <!--Navbar parte derecha-->
+            <div class="navbar_right">
+                <div class="search_box"> <!--Barra de búsqueda de usuario-->
+                    <label class="icon_search" for="search_box"><i class="fa-solid fa-magnifying-glass"></i> </label>
+                    <input type="text" id="search_box" name="search_user" placeholder="Buscar">
+
+                    <!-- Contenedor de resultados de búsqueda -->
+                    <div id="searchResults" class="search_results_container"></div>
+                </div>
+
+                <!--Nombre y foto del usuario-->
+                <p class="name_perfil">Eustaquio Rodriguez</p>
+                <a href="perfil_usuario.html">
+                    <div class="perfil">
+                        <img width="200" src="Imagenes/perfil.jpeg" alt="Foto de perfil">
+                    </div>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!--Fondo de la página sobre el cual irá el contenido-->
+    <div class="background">
+
+        <!--Pop-up personalizado para confirmación de logout -->
+        <div id="logout_popup" class="popup">
+            <div class="logout_popup_content">
+                <p>¿Estás seguro que quieres salir?</p>
+                <p style="text-decoration: underline;">Se cerrará la sesión</p>
+                <button id="confirm_logout">Confirmar</button>
+                <button id="cancel_logout">Cancelar</button>
+            </div>
+        </div>
+
+        <!-- ================CONTAINER IZQUIERDA / NAVEGACIÓN POR LA PÁGINA ================ -->
+        <div class="container_left_home">
+            <ul>
+                <li>
+                    <a href="home_usuario.html" class="active"><i class="fa-solid fa-house"></i>
+                        <span id="inicio">Inicio</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="amigos_usuario.html"><i class="fas fa-users"></i> 
+                        <span id="amigos">Amigos</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="perfil_usuario.html"><i class="fas fa-user"></i> 
+                        <span id="perfil">Perfil</span>
+                    </a>
+                </li>
+            
+                <li>
+                    <a style="cursor: pointer;" id="logout_link"><i class="fa-solid fa-arrow-right-from-bracket"></i>
+                        <span id="salir">Salir</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- ================ CONTAINER CENTRAL / TIMELINE DE POSTS ================ -->
+        <div class="container_main_home">
+
+            <!--Container para crear un post-->
+            <div id="crear_post" class="crear_post">
+                <img class="img_perfil" src="Imagenes/perfil.jpeg" alt="Foto de perfil">
+
+                <div>
+                    <textarea name="new_post_text_area" id="crear_post_text_area" rows="2" placeholder="Escribe algo..."></textarea> <!--TextArea para meter texto en el post-->
+                    <div>
+                        <img id="preview_img" src="vacio.jpg" style="display: none;" alt="Previsualización de foto"> <!--Previsualización de la imagen seleccionada-->
+                    </div> 
+                </div>
+
+                <!-- === Botón para subir imagen ===-->
+                <label for="input_image" class="upload_image">
+                    <i style="cursor: pointer;" class="fa-solid fa-image"></i>
+                    <input type="file" id="input_image" name="image" accept="image/*" multiple>
+                </label>
+
+                <button class="post_btn">POST</button>
+            </div>
+
+            <!-- ====== AGRANDAR IMAGEN AL CLICKEAR ====== -->
+            <div class="lightbox" id="lightbox">
+                <img id="lightbox_img"  src="vacio.jpg" alt="Imagen expandida">
+            </div>
+
+            <!-- ================ POST ================ -->
+            <div class="post_container">
+
+                <!--Información del usuario que ha subido el post-->
+                <div class="perfil_post">
+                    <img class="perfil_img" src="Imagenes/perfil3.jpg" alt="Foto de perfil del usuario">
+                    <div class="head">
+                        <p class="name">Josefina Jason</p>
+                        <span class="time">26 Octubre 2024, 15:23 pm</span>
+                    </div>
+                </div>
+
+                <!--Texto del post-->
+                <p class="post_text">
+                    Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un
+                    impresor (N. del T. persona que se dedica a la imprenta)
+                    desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos
+                    especimen.
+                </p>
+
+                <!--Imagen del post-->
+                <div class="img_cont">
+                    <img src="Imagenes/paisaje.jpg" class="post_img" alt="Foto de post del usuario">
+                </div>
+
+                <!--Interacciones con el post (like y comentarios)-->
+                <div class="post_interactions">
+                    <div class="like_icon"> <i onclick="toggleLike(this)" class="fa-solid fa-heart"></i> 45</div>
+                    <div class="comment_icon"> <i onclick="openComments(this)" class="fa-solid fa-comment"></i> 8</div>
+                </div>
+            </div>
+
+            <!-- ================ POST ================ -->
+            <div class="post_container">
+
+                <!--Información del usuario que ha subido el post-->
+                <div class="perfil_post">
+                    <img class="perfil_img" src="Imagenes/perfil.jpeg" alt="Foto de perfil del usuario">
+                    <div class="head">
+                        <p class="name">Eustaquio Rodriguez</p>
+                        <span class="time">26 Octubre 2024, 15:23 pm</span>
+                    </div>
+                </div>
+
+                <!--Texto del post-->
+                <p class="post_text">
+                    Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un
+                    impresor (N. del T. persona que se dedica a la imprenta)
+                    desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos
+                    especimen.
+                </p>
+
+                <!--Imagen del post-->
+                <div class="img_cont">
+                    <img src="Imagenes/paisaje.jpg" class="post_img" alt="Foto de post del usuario">
+                </div>
+
+                <!--Interacciones con el post (like y comentarios)-->
+                <div class="post_interactions">
+                    <div class="like_icon"> <i onclick="toggleLike(this)" class="fa-solid fa-heart"></i> 45</div>
+                    <div class="comment_icon"> <i onclick="openComments(this)" class="fa-solid fa-comment"></i> 8</div>
+                </div>
+            </div>
+
+            <!-- ================ POST ================ -->
+            <div class="post_container">
+
+                <!--Información del usuario que ha subido el post-->
+                <div class="perfil_post">
+                    <img class="perfil_img" src="Imagenes/perfil2.jpg" alt="Foto de perfil del usuario">
+                    <div class="head">
+                        <p class="name">Matthew Jackson</p>
+                        <span class="time">26 Octubre 2024, 15:23 pm</span>
+                    </div>
+                </div>
+
+                <!--Texto del post-->
+                <p class="post_text">
+                    Un texto es una composición de signos codificados en un sistema de escritura que forma una unidad de
+                    sentido.
+                    También es una composición de caracteres imprimibles generados por un algoritmo de cifrado que,
+                    aunque no
+                </p>
+
+                <!--Imagen del post-->
+                <div class="img_cont">
+                    <img src="Imagenes/paisaje2.jpeg" class="post_img" alt="Foto de post del usuario">
+                </div>
+
+                <!--Interacciones con el post (like y comentarios)-->
+                <div class="post_interactions">
+                    <div class="like_icon"> <i onclick="toggleLike(this)" class="fa-solid fa-heart"></i> 45</div>
+                    <div class="comment_icon"> <i onclick="openComments(this)" class="fa-solid fa-comment"></i> 8</div>
+                </div>
+            </div>
+
+            <!-- ================ POST ================ -->
+            <div class="post_container">
+
+                <!--Información del usuario que ha subido el post-->
+                <div class="perfil_post">
+                    <img class="perfil_img" src="Imagenes/perfil4.jpg" alt="Foto de perfil del usuario">
+                    <div class="head">
+                        <p class="name">Tommy Ramos</p>
+                        <span class="time">26 Octubre 2024, 15:23 pm</span>
+                    </div>
+                </div>
+
+                <!--Texto del post-->
+                <p class="post_text">
+                    Un texto es una composición de signos codificados en un sistema de escritura que forma una unidad de
+                    sentido.
+                    También es una composición de caracteres imprimibles generados por un algoritmo de cifrado que,
+                    aunque no
+                </p>
+
+                <!--Imagen del post-->
+                <div class="img_cont">
+                    <img src="Imagenes/paisaje3.jpeg" class="post_img" alt="Foto del post del usuario">
+                </div>
+
+                <!--Interacciones con el post (like y comentarios)-->
+                <div class="post_interactions">
+                    <div class="like_icon"> <i onclick="toggleLike(this)" class="fa-solid fa-heart"></i> 45</div>
+                    <div class="comment_icon"> <i onclick="openComments(this)" class="fa-solid fa-comment"></i> 8</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================ CONTAINER DERECHA / MENSAJES ================ -->
+        <div class="container_right_home">
+
+            <!--Barra de búsqueda de mensajes e icono para crear nuevo mensaje-->
+            <div class="top_side">
+                <div class="msg_top">
+                    <h3>Mensajes</h3>
+                    <i id="sendMsg_btn" class="fa-solid fa-pen"></i>
+                </div>
+                <div class="msg_search_bar">
+                    <label class="icon_search" for="msg_search_bar"><i class="fa-solid fa-magnifying-glass"></i> </label>
+                    <input type="search" name="search_user_msg" placeholder="Buscar Chat" id="msg_search_bar">
+                </div>
+            </div>
+
+            <!-- ================MENSAJES================ -->
+            <div class="msg" onclick="openChatPopup()"> <!--Mensaje clickable para abrir-->
+
+                <!--Foto del usuario-->
+                <img class="foto_perfil" src="/Imagenes/perfil9.png" alt="Foto de perfil del usuario">
+
+                <!--Nombre de usuario y Mensaje más reciente-->
+                <div class="msg_body">
+                    <h5> Lidia Hampton</h5>
+                </div>
+            </div>
+
+            <div class="msg" onclick="openChatPopup()"> <!--Mensaje clickable para abrir-->
+
+                <!--Foto del usuario-->                
+                <img class="foto_perfil" src="/Imagenes/perfil3.jpg" alt="Foto de perfil del usuario">
+            
+                <!--Nombre de usuario y Mensaje más reciente-->
+                <div class="msg_body">
+                    <h5> Josefina Jason</h5>
+                </div>
+            </div>
+
+            <div class="msg" onclick="openChatPopup()"> <!--Mensaje clickable para abrir-->
+
+                <!--Foto del usuario-->
+                
+                <img class="foto_perfil" src="/Imagenes/perfil2.jpg" alt="Foto de perfil del usuario">
+
+                <!--Nombre de usuario y Mensaje más reciente-->
+                <div class="msg_body">
+                    <h5> Matthew Jackson</h5>
+                </div>
+            </div>
+
+            <div class="msg" onclick="openChatPopup()"> <!--Mensaje clickable para abrir-->
+
+                <!--Foto del usuario-->
+                <img class="foto_perfil" src="/Imagenes/perfil5.jpeg" alt="Foto de perfil del usuario">
+                
+                <!--Nombre de usuario y Mensaje más reciente-->
+                <div class="msg_body">
+                    <h5> Antonio Martínez</h5>
+                </div>
+            </div>
+
+            <div class="msg" onclick="openChatPopup()"> <!--Mensaje clickable para abrir-->
+
+                <!--Foto del usuario-->
+                <img class="foto_perfil" src="/Imagenes/perfil8.jpeg" alt="Foto de perfil del usuario">
+
+                <!--Nombre de usuario y Mensaje más reciente-->
+                <div class="msg_body">
+                    <h5> Lucía Correa</h5>
+                </div>
+            </div>
+         
+        </div>
+    </div>
+
+    <!-- ================ Modal comentarios ================ -->
+    <div id="commentModal" class="modal_background">
+
+        <div class="modal_container_comments">
+            <span class="close" onclick="closeComments()">&times;</span>
+            <h2>Comentarios</h2>
+
+            <!--Sección de comentarios-->
+            <div class="comments_section">
+
+                <!--Comentario-->
+                <div class="comment">
+                    <strong>Usuario 1:</strong>
+                    <p>Este es un comentario de ejemplo.
+                    </p>
+                </div>
+
+                <!--Comentario-->
+                <div class="comment">
+                    <strong>Usuario 2:</strong>
+                    <p>¡Qué foto más bonita!</p>
+                </div>
+
+                <!--Comentario-->
+                <div class="comment">
+                    <strong>Usuario 2:</strong>
+                    <p>¡Qué foto más bonita!</p>
+                </div>
+
+                <!--Comentario-->
+                <div class="comment">
+                    <strong>Usuario 2:</strong>
+                    <p>¡Qué foto más bonita!</p>
+                </div>
+
+                <!--Comentario-->
+                <div class="comment">
+                    <strong>Usuario 2:</strong>
+                    <p>¡Qué foto más bonita!</p>
+                </div>
+
+                <!--Comentario-->
+                <div class="comment">
+                    <strong>Usuario 2:</strong>
+                    <p>¡Qué foto más bonita!</p>
+                </div>
+            </div>
+
+            <!-- Caja de texto para agregar comentario -->
+            <textarea name="new_comment_text_area" id="new_comment" rows="3" placeholder="Escribe un comentario..."></textarea>
+
+            <!--Botón para publicar comentario-->
+            <button id="post_comment_btn">Publicar comentario</button>
+        </div>
+    </div>
+
+    <!-- ================Modal para enviar mensaje================ -->
+    <div id="sendMsgModal" class="modal">
+        <div class="modal_send_msg">
+            <span class="close_send_msg">&times;</span> <!--Cruz para cerrar modal-->
+            <h2>Enviar Mensaje <i class="fa-solid fa-message"></i> </h2>
+
+            <div class="destinatario">
+                <span>Para: </span>
+                <input id="dest_msg" name="msg_send_to" type="text" placeholder="Introduce un nombre de usuario">
+            </div>
+
+            <span>Escribe un mensaje: </span>
+            <textarea id="new_msg" name="msg_text" rows="3" placeholder="Escribe un mensaje"></textarea>
+            <button id="send_msg_btn">Enviar</button>
+        </div>
+    </div>
+
+    <!-- ================ Modal para ver mensaje ================ -->
+    <div id="viewMsgModal" class="modal">
+        <div class="modal_view_msg">
+            <span class="close_view_msg">&times;</span>
+            <h4>Chat con Lidia Hampton</h4>
+
+            <!--========CHAT========-->
+            <div class="chat_body">
+                <!--Contenido del chat (class="me" representa el propio usuario que envía el mensaje)-->
+                <p><strong>Khabib:</strong> Hola, ¿cómo estás?</p>
+                <p><strong class="me">Tú:</strong> Todo bien, ¿y tú? </p>
+                <p><strong>Khabib:</strong> ¡Genial! Nos vemos ¡Genial! Nos vemos pronto</p>
+                <p><strong>Khabib:</strong> ¡Genial! Nos vemos pronto.</p>
+                <p><strong>Khabib:</strong> ¡Genial! Nos vemos pronto.</p>
+                <p><strong>Khabib:</strong> ¡Genial! Nos vemos pronto.</p>
+                <p><strong>Khabib:</strong> ¡Genial! Nos vemos pronto.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================ PIE DE PAGINA================ -->
+    
+        <footer class="footer_background">
+            <div class="footer_background">
+                <!--Sección para poner links-->
+                <nav>
+                    <p>© 2024 ViewShare - Todos los derechos reservados.</p>
+
+                    <!--Contactar via correo con ViewShare-->
+                    <label class="contact-label">
+                        <a href="mailto:viewshare@gmail.com">Contacto</a>
+                    </label>
+                </nav>
+            </div>
+        </footer>
+    
+
+    <!--============================= JavaScript para las interacciones =============================-->
+    <script src="js/global_listeners.js"></script>
+    <script src="js/friendRequest.js"></script>
+    <script src="js/textAreasAuto.js"></script>
+    <script src="js/modals/msgModal.js"></script>
+    <script src="js/modals/sendMsgModal.js"></script>
+
+</body>
+
+</html>

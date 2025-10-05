@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<!--HEADER Y METADATOS-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Principal - ViewShare</title>
+    <link rel="stylesheet" href="style.css"> <!--Importamos el .css-->
+    <link rel="icon" type="image/png" href="Imagenes/ICONO_WEB.png"> <!--Icono de la web-->
+    <script src="https://kit.fontawesome.com/d3001438c5.js" crossorigin="anonymous"></script> <!--Importamos la web fontawesome para poder utilizar sus iconos-->
+    <script src="js/main.js"></script> <!--Importamos js al principio para que cargue antes que los demás elementos-->
+</head>
+
+<body>
+ 
+    <!--Container principal-->
+    <div class="container_login">
+
+        <!--Titulos e input del nombre de usuario-->
+        <div class="campos_log">
+            <label id="lbl_usuario" for="usuario_login">Nombre de usuario</label>  <!-- FOR, PARA QUE SI PINCHAS EN EL LABEL TAMBIEN TE DIRIJA AL CAMPO -->
+            <input type="text" id="usuario_login" placeholder="Introduce tu nombre de usuario">
+        </div>
+
+        <!--Titulos e input de la contrasenna-->
+        <div class="campos_log">
+            <label id="lbl_password" for="password_login">Contraseña</label>
+            <input type="password" id="password_login" placeholder="Introduce tu contraseña">
+        </div>
+
+        <!--Label de registro-->
+        <div class="lbl_registro">
+            <label> ¿No tienes cuenta?</label>
+        </div>
+
+        <!--Enlace para registrarse-->
+        <div class="lbl_registro">
+            <label>
+                <a href="registro.html" rel="noreferrer" id="registrarse">
+                    Regístrate
+                </a>
+            </label>
+        </div>
+
+        <!--Icono de ojo para ver/esconder la contrasenna-->
+        <div>
+            <label onclick="viewPassword('password_login','text','mostrarPassword')" id="mostrarPassword">
+                <i class="fa-solid fa-eye"></i>
+            </label>
+        </div>
+
+        <!--Botón para iniciar sesión-->
+        <form action="home_usuario.html" rel="noreferrer"> 
+            <button class="btn_login">Iniciar Sesión</button>
+        </form>
+
+        <!--Botón para iniciar sesión como administrador-->
+        <div>
+            <label id="lbl_admin">
+                <a id="admin" href="login_admin.html" rel="noreferrer">
+                    Iniciar sesión como Administrador 
+                </a>
+            </label>
+        </div>
+
+        <!--Logo de ViewShare-->
+        <img id="logo_inicio" src="Imagenes/LOGO_WEB.png" alt="Icono de login">
+
+        <!--Mensaje de error de tamanno de caracteres en la contrasenna-->
+        <p id="msg_error"></p>
+    </div>
+
+    <!-- PIE DE PAGINA-->
+    <div class="footer_background">
+        <footer>
+            <!--Sección para poner links-->
+            <nav>
+                <p>© 2024 ViewShare - Todos los derechos reservados.</p>
+
+                <!--Contactar via correo con ViewShare-->
+                <label class="contact-label">
+                    <a href="mailto:viewshare@gmail.com">Contacto</a>
+                </label>
+            </nav>
+        </footer>
+    </div>
+</body>
+
+</html>
